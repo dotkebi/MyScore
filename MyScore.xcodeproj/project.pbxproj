@@ -27,6 +27,7 @@
 		CB41559D2091D0E00047F797 /* SequeFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4155932091D0E00047F797 /* SequeFromRight.swift */; };
 		CB41559E2091D0E00047F797 /* SeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4155942091D0E00047F797 /* SeparatorView.m */; };
 		CB41559F2091D0E00047F797 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4155952091D0E00047F797 /* SegueFromLeft.swift */; };
+		CB70BDD320B50C6C00F66720 /* String+Localication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB70BDD220B50C6C00F66720 /* String+Localication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		CB4155942091D0E00047F797 /* SeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorView.m; sourceTree = "<group>"; };
 		CB4155952091D0E00047F797 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		CB4155962091D0E00047F797 /* SeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorView.h; sourceTree = "<group>"; };
+		CB70BDD220B50C6C00F66720 /* String+Localication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localication.swift"; sourceTree = "<group>"; };
+		CB70BDD420B5148E00F66720 /* MyScore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyScore.entitlements; sourceTree = "<group>"; };
 		DF90D05B12902FDD4D6E13DD /* Pods-MyScoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyScoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyScoreTests/Pods-MyScoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0A5E278B311712CE023DF91 /* Pods-MyScoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyScoreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyScoreTests/Pods-MyScoreTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +162,7 @@
 		CB4155512091D0840047F797 /* MyScore */ = {
 			isa = PBXGroup;
 			children = (
+				CB70BDD420B5148E00F66720 /* MyScore.entitlements */,
 				CB4155882091D0E00047F797 /* Common */,
 				CB4155522091D0840047F797 /* AppDelegate.swift */,
 				CB4155542091D0840047F797 /* DocumentBrowserViewController.swift */,
@@ -208,6 +212,7 @@
 				CB41558C2091D0E00047F797 /* String+Size.swift */,
 				CB41558D2091D0E00047F797 /* CommonExtension.swift */,
 				CB41558E2091D0E00047F797 /* UIView+CSSize.h */,
+				CB70BDD220B50C6C00F66720 /* String+Localication.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -303,6 +308,11 @@
 				TargetAttributes = {
 					CB41554E2091D0840047F797 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					CB4155662091D0850047F797 = {
 						CreatedOnToolsVersion = 9.3;
@@ -387,10 +397,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyScore/Pods-MyScore-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PDFReader/PDFReader.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyAttributes/SwiftyAttributes.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PDFReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyAttributes.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +462,7 @@
 				CB4155592091D0840047F797 /* Document.swift in Sources */,
 				CB4155572091D0840047F797 /* DocumentViewController.swift in Sources */,
 				CB4155552091D0840047F797 /* DocumentBrowserViewController.swift in Sources */,
+				CB70BDD320B50C6C00F66720 /* String+Localication.swift in Sources */,
 				CB41559B2091D0E00047F797 /* UserDefaultManager.swift in Sources */,
 				CB41559A2091D0E00047F797 /* CommonExtension.swift in Sources */,
 				CB4155532091D0840047F797 /* AppDelegate.swift in Sources */,
@@ -626,14 +639,15 @@
 			baseConfigurationReference = B2F157F790F382B92B1449BC /* Pods-MyScore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyScore/MyScore.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 543QN2RN65;
+				DEVELOPMENT_TEAM = BL9272Y6BG;
 				INFOPLIST_FILE = MyScore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.dotkebi.MyScore;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.dotkebi.myscore.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -645,14 +659,15 @@
 			baseConfigurationReference = B0994D6F67684F23B9851609 /* Pods-MyScore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyScore/MyScore.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 543QN2RN65;
+				DEVELOPMENT_TEAM = BL9272Y6BG;
 				INFOPLIST_FILE = MyScore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.dotkebi.MyScore;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.dotkebi.myscore.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

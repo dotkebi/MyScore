@@ -5,6 +5,7 @@ use_frameworks!
 
 def shared_pods
   pod 'SwiftyAttributes'
+  pod 'PDFReader'
 end
 
 target 'MyScore' do

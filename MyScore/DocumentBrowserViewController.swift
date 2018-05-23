@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import PDFReader
 
-
-class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
+class DocumentBrowserViewController: UIDocumentBrowserViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,10 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+}
 
+extension DocumentBrowserViewController: UIDocumentBrowserViewControllerDelegate {
+ 
     // MARK: UIDocumentBrowserViewControllerDelegate
 
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
@@ -62,15 +65,27 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         // Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
     }
 
+}
+
+extension DocumentBrowserViewController {
+
     // MARK: Document Presentation
 
     func presentDocument(at documentURL: URL) {
 
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let documentViewController = storyBoard.instantiateViewController(withIdentifier: "DocumentViewController") as! DocumentViewController
-        documentViewController.document = Document(fileURL: documentURL)
+        guard documentURL.pathExtension == "pdf" else {
+            alert(message: "PDF만 지원합니다")
+            return
+        }
 
-        present(documentViewController, animated: true, completion: nil)
+        let document = PDFDocument(url: documentURL)!
+        let readerController = PDFViewController.createNew(with: document)
+        present(readerController, animated: true)
+    }
+
+    func alert(message: String) {
+        let alertController = UIAlertController(title: ALERT_TITLE, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "확인".lo, style: .default))
+        present(alertController, animated: true)
     }
 }
-
