@@ -12,7 +12,6 @@
 		695A5A9CD63F01D49025306C /* Pods_MyScore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2EC0B2E0A8407369F9E763 /* Pods_MyScore.framework */; };
 		CB4155532091D0840047F797 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4155522091D0840047F797 /* AppDelegate.swift */; };
 		CB4155552091D0840047F797 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4155542091D0840047F797 /* DocumentBrowserViewController.swift */; };
-		CB4155572091D0840047F797 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4155562091D0840047F797 /* DocumentViewController.swift */; };
 		CB4155592091D0840047F797 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4155582091D0840047F797 /* Document.swift */; };
 		CB41555C2091D0840047F797 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB41555A2091D0840047F797 /* Main.storyboard */; };
 		CB41555E2091D0850047F797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB41555D2091D0850047F797 /* Assets.xcassets */; };
@@ -58,7 +57,6 @@
 		CB41554F2091D0840047F797 /* MyScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4155522091D0840047F797 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB4155542091D0840047F797 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
-		CB4155562091D0840047F797 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		CB4155582091D0840047F797 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		CB41555B2091D0840047F797 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB41555D2091D0850047F797 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 				CB4155882091D0E00047F797 /* Common */,
 				CB4155522091D0840047F797 /* AppDelegate.swift */,
 				CB4155542091D0840047F797 /* DocumentBrowserViewController.swift */,
-				CB4155562091D0840047F797 /* DocumentViewController.swift */,
 				CB4155582091D0840047F797 /* Document.swift */,
 				CB41555A2091D0840047F797 /* Main.storyboard */,
 				CB41555D2091D0850047F797 /* Assets.xcassets */,
@@ -460,7 +457,6 @@
 				CB4155982091D0E00047F797 /* UIView+CSSize.m in Sources */,
 				CB41559F2091D0E00047F797 /* SegueFromLeft.swift in Sources */,
 				CB4155592091D0840047F797 /* Document.swift in Sources */,
-				CB4155572091D0840047F797 /* DocumentViewController.swift in Sources */,
 				CB4155552091D0840047F797 /* DocumentBrowserViewController.swift in Sources */,
 				CB70BDD320B50C6C00F66720 /* String+Localication.swift in Sources */,
 				CB41559B2091D0E00047F797 /* UserDefaultManager.swift in Sources */,

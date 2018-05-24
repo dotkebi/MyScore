@@ -16,7 +16,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController {
 
         delegate = self
 
-        allowsDocumentCreation = true
+        allowsDocumentCreation = false
         allowsPickingMultipleItems = false
 
         // Update the style of the UIDocumentBrowserViewController
@@ -78,9 +78,16 @@ extension DocumentBrowserViewController {
             return
         }
 
-        let document = PDFDocument(url: documentURL)!
-        let readerController = PDFViewController.createNew(with: document)
-        present(readerController, animated: true)
+        if documentURL.startAccessingSecurityScopedResource() {
+            alert(message: "startAccessingSecurityScopedResource")
+//            return
+        }
+
+        if let document = PDFDocument(url: documentURL) {
+            let readerController = PDFViewController.createNew(with: document)
+            present(readerController, animated: true)
+        }
+        
     }
 
     func alert(message: String) {
