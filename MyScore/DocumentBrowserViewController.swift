@@ -31,7 +31,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController {
 }
 
 extension DocumentBrowserViewController: UIDocumentBrowserViewControllerDelegate {
- 
+
     // MARK: UIDocumentBrowserViewControllerDelegate
 
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
@@ -79,15 +79,16 @@ extension DocumentBrowserViewController {
         }
 
         if documentURL.startAccessingSecurityScopedResource() {
-            alert(message: "startAccessingSecurityScopedResource")
-//            return
-        }
+            if let document = PDFDocument(url: documentURL) {
+                let readerController = PDFViewController.createNew(with: document)
+                present(readerController, animated: true)
 
-        if let document = PDFDocument(url: documentURL) {
-            let readerController = PDFViewController.createNew(with: document)
-            present(readerController, animated: true)
+            } else {
+                alert(message: "wrong")
+            }
+            documentURL.stopAccessingSecurityScopedResource()
+
         }
-        
     }
 
     func alert(message: String) {
